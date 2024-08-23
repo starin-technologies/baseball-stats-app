@@ -152,4 +152,187 @@ const handleSave = async () => {
               getData();
               setEditDialogOpen(false);
           })
-          .catch((error) => console.error('Error updating player:
+          .catch((error) => console.error('Error updating player:', error));
+      } else {
+          console.error('Failed to generate LLM description, player data not saved.');
+      }
+  }
+};
+
+  return (
+    <Container sx={{ paddingTop: '2rem' }}>
+      <Typography variant="h3" gutterBottom align="center" color={blue[700]}>
+        Baseball Players Ranked by Hits
+      </Typography>
+      <Typography variant="h6" gutterBottom align="center" color={grey[600]}>
+        (Recent Years First)
+      </Typography>
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={4}>
+          <List sx={{ 
+            backgroundColor: grey[100], 
+            borderRadius: '8px', 
+            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+            overflowY: 'auto',
+            maxHeight: '70vh'
+          }}>
+            {players.map((player, index) => (
+              <React.Fragment key={player.id}>
+                {(index === 0 || player.year !== players[index - 1].year) && (
+                  <Divider sx={{ margin: '0.5rem 0' }} />
+                )}
+                <ListItem 
+                  button 
+                  onClick={() => handlePlayerClick(player)}
+                  sx={{ 
+                    padding: '1rem',
+                    backgroundColor: index % 2 === 0 ? grey[50] : grey[100],
+                    '&:hover': {
+                      backgroundColor: blue[50],
+                    },
+                    borderBottom: `1px solid ${grey[300]}`,
+                  }}
+                >
+                  <ListItemText 
+                    primary={`Year: ${player.year} | Rank: ${player.rank}`} 
+                    secondary={`${player.player_name}, Hits: ${player.hits}`} 
+                    primaryTypographyProps={{ color: blue[900], fontWeight: 'bold' }}
+                    secondaryTypographyProps={{ color: grey[800] }}
+                  />
+                </ListItem>
+              </React.Fragment>
+            ))}
+          </List>
+        </Grid>
+
+        {selectedPlayer && (
+          <Grid item xs={12} md={8}>
+            <Card sx={{ 
+              borderRadius: '8px', 
+              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+              backgroundColor: grey[50]
+            }}>
+              <CardContent>
+                <Typography variant="h5" gutterBottom color={blue[800]}>
+                  {selectedPlayer.player_name}
+                </Typography>
+                <Typography variant="body1" paragraph color={grey[700]}>
+                  {selectedPlayer.description}
+                </Typography>
+                <Typography variant="body2" color={grey[600]}>
+                  Rank: {selectedPlayer.rank}
+                </Typography>
+                <Typography variant="body2" color={grey[600]}>
+                  Hits: {selectedPlayer.hits}
+                </Typography>
+                <Typography variant="body2" color={grey[600]}>
+                  Age: {selectedPlayer.age}
+                </Typography>
+                <Typography variant="body2" color={grey[600]}>
+                  Year: {selectedPlayer.year}
+                </Typography>
+                <Typography variant="body2" color={grey[600]}>
+                  Bats: {selectedPlayer.bats}
+                </Typography>
+              </CardContent>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={() => setEditDialogOpen(true)}
+                sx={{ 
+                  margin: '1rem',
+                  backgroundColor: blue[500],
+                  '&:hover': {
+                    backgroundColor: blue[700],
+                  }
+                }}
+              >
+                Edit
+              </Button>
+            </Card>
+          </Grid>
+        )}
+      </Grid>
+
+      <Dialog 
+        open={editDialogOpen} 
+        onClose={() => setEditDialogOpen(false)} 
+        fullWidth
+        maxWidth="sm"
+        PaperProps={{
+          style: {
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1300,  // Ensure the dialog stays on top
+            borderRadius: '8px',
+            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.2)',
+          },
+        }}
+      >
+        <DialogTitle>Edit Player Details</DialogTitle>
+        <DialogContent>
+          <TextField
+            label="Player Name"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            value={editData.player_name || ''}
+            onChange={(e) => handleInputChange('player_name', e.target.value)}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            label="Age"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            type="number"
+            value={editData.age || ''}
+            onChange={(e) => handleInputChange('age', parseInt(e.target.value, 10))}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            label="Hits"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            type="number"
+            value={editData.hits || ''}
+            onChange={(e) => handleInputChange('hits', parseInt(e.target.value, 10))}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            label="Year"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            type="number"
+            value={editData.year || ''}
+            onChange={(e) => handleInputChange('year', parseInt(e.target.value, 10))}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            label="Bats"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            value={editData.bats || ''}
+            onChange={(e) => handleInputChange('bats', e.target.value)}
+            InputLabelProps={{ shrink: true }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setEditDialogOpen(false)} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleSave} color="primary" sx={{ backgroundColor: green[500], '&:hover': { backgroundColor: green[700] } }}>
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Container>
+  );
+};
+
+export default App;

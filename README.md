@@ -1,8 +1,7 @@
-![image](https://github.com/user-attachments/assets/0a000434-e6c0-4b57-8daf-5d7b8c10af9b)
-
 # Baseball Stats App
 
 This is a web application that allows users to view, edit, and read descriptions for baseball players based on their stats.
+![image](https://github.com/user-attachments/assets/cea56d33-0664-4a6a-ab0e-6d6d142c88c8)
 
 ## Features
 

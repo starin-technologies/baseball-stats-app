@@ -13,33 +13,31 @@ This is a web application that allows users to view, edit, and read descriptions
 ## Project Structure
 ```
 baseball-stats-app/
-├── backend/
-│   ├── app.py # Main Flask application file
-│   ├── requirements.txt # Python dependencies
-│   ├── .env # Environment variables (including OpenAI API key)
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.tsx # Main React component
-│   ├── public/
-│   │   ├── index.html # Main HTML file
-│   ├── package.json # Frontend dependencies and scripts
-│   ├── tsconfig.json # TypeScript configuration
-│
-├── db/
-│   ├── init.sql # SQL setup script
-│
-├── instance/
-│   ├── config.py # Instance-specific configuration
-│
-├── migrations/
-│   ├── versions/ # Versioned migrations for Alembic
-│
-├── venv/ # Python virtual environment for backend
-│
-├── .gitignore # Git ignore file
-│
-├── README.md # Project documentation
+├── README.md                # Project documentation
+├── backend/                 # Backend directory for Flask application
+│   ├── app.py               # Main Flask application file
+│   └── requirements.txt     # Python dependencies
+├── db/                      # Database initialization files
+│   └── init.sql             # SQL setup script
+├── frontend/                # Frontend directory for React application
+│   ├── package-lock.json    # Lock file for npm dependencies
+│   ├── package.json         # Frontend dependencies and scripts
+│   ├── public/              # Public assets directory
+│   │   └── index.html       # Main HTML file
+│   ├── src/                 # Source directory for React components
+│   │   ├── App.tsx          # Main React component
+│   │   └── index.tsx        # Entry point for React application
+│   └── tsconfig.json        # TypeScript configuration
+├── instance/                # Instance-specific files
+│   └── players.db           # SQLite database file
+├── migrations/              # Database migrations
+│   ├── README               # Migrations documentation
+│   ├── alembic.ini          # Alembic configuration file
+│   ├── env.py               # Environment settings for Alembic
+│   ├── script.py.mako       # Script templates for Alembic
+│   └── versions/            # Directory for migration versions
+└── project_structure.txt    # File containing the project structure
+
 ```
 
 ## Setup Instructions
@@ -65,7 +63,7 @@ baseball-stats-app/
        ```
      - On Windows:
        ```bash
-       venv\Scriptsctivate
+       venv\Scripts\activate
        ```
    - Install dependencies:
      ```bash

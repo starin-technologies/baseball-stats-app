@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/0a000434-e6c0-4b57-8daf-5d7b8c10af9b)
 
 # Baseball Stats App
 

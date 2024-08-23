@@ -1,0 +1,7 @@
+Flask
+flask_sqlalchemy
+psycopg2-binary
+requests
+flask_migrate
+flask-cors
+openai

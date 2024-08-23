@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Flask
+instance/
+*.sqlite3
+
+# Node.js
+node_modules/
+
+# Environment variables
+.env

@@ -36,8 +36,6 @@ baseball-stats-app/
 │   ├── env.py               # Environment settings for Alembic
 │   ├── script.py.mako       # Script templates for Alembic
 │   └── versions/            # Directory for migration versions
-└── project_structure.txt    # File containing the project structure
-
 ```
 
 ## Setup Instructions

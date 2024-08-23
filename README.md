@@ -31,11 +31,11 @@ baseball-stats-app/
 ├── instance/                # Instance-specific files
 │   └── players.db           # SQLite database file
 ├── migrations/              # Database migrations
-│   ├── README               # Migrations documentation
-│   ├── alembic.ini          # Alembic configuration file
-│   ├── env.py               # Environment settings for Alembic
-│   ├── script.py.mako       # Script templates for Alembic
-│   └── versions/            # Directory for migration versions
+    ├── README               # Migrations documentation
+    ├── alembic.ini          # Alembic configuration file
+    ├── env.py               # Environment settings for Alembic
+    ├── script.py.mako       # Script templates for Alembic
+    └── versions/            # Directory for migration versions
 ```
 
 ## Setup Instructions

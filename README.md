@@ -15,25 +15,19 @@ This is a web application that allows users to view, edit, and read descriptions
 baseball-stats-app/
 ├── backend/
 │   ├── app.py # Main Flask application file
-│   ├── models.py # Database models
-│   ├── routes.py # API route definitions
 │   ├── requirements.txt # Python dependencies
 │   ├── .env # Environment variables (including OpenAI API key)
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── App.tsx # Main React component
-│   │   ├── components/ # Reusable React components
-│   │   ├── pages/ # React page components
-│   │   ├── theme.ts # Custom MUI theme configuration
 │   ├── public/
 │   │   ├── index.html # Main HTML file
 │   ├── package.json # Frontend dependencies and scripts
 │   ├── tsconfig.json # TypeScript configuration
 │
 ├── db/
-│   ├── migrations/ # Database migrations
-│   ├── setup.sql # SQL setup script
+│   ├── init.sql # SQL setup script
 │
 ├── instance/
 │   ├── config.py # Instance-specific configuration

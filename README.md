@@ -8,7 +8,7 @@ This is a web application that allows users to view, edit, and read descriptions
 - View a list of baseball players sorted by their number of hits.
 - Click on a player to view detailed stats and a description.
 - Edit player information and update their details.
-- Generate LLM-generated descriptions for players using the OpenAI API.
+- Create LLM-generated descriptions for players using the OpenAI API.
 
 ## Project Structure
 ```

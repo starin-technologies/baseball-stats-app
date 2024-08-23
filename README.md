@@ -11,7 +11,7 @@ This is a web application that allows users to view, edit, and read descriptions
 - Generate LLM-generated descriptions for players using the OpenAI API.
 
 ## Project Structure
-
+```
 baseball-stats-app/
 ├── backend/
 │   ├── app.py # Main Flask application file
@@ -46,6 +46,7 @@ baseball-stats-app/
 ├── .gitignore # Git ignore file
 │
 ├── README.md # Project documentation
+```
 
 ## Setup Instructions
 

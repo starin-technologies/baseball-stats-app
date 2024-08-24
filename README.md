@@ -71,7 +71,7 @@ baseball-stats-app/
      ```
    - Start the backend server:
      ```bash
-     flask run
+     python app.py
      ```
 
 3. **Frontend Setup:**
